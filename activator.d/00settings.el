@@ -17,7 +17,7 @@
 (setq sgml-basic-offset 3)
 (setq nxml-child-indent 3)
 
-(setq backup-directory-alist (list (cons "." "~/.backups")))
+(add-to-list 'backup-directory-alist (cons "." "~/.backups"))
 
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "open")
