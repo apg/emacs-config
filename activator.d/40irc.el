@@ -6,16 +6,16 @@
 (setq rcirc-default-nick "apgwoz"
       rcirc-default-user-name "apgwoz"
       rcirc-default-user-full-name "Andrew Gwozdziewycz"
-      rcirc-prompt "%n@%s> "; list nick name
+      rcirc-prompt "%n> "; list nick name
       rcirc-fill-prefix "  "
       rcirc-time-format "%Y-%m-%d %H:%M"
       rcirc-keywords '("andrewg" "apgwoz" "ap9" "apgw")
-      rcirc-buffer-maximum-lines 8192
-      rcirc-fill-column 78)
+      rcirc-buffer-maximum-lines 8192)
+
 
 (setq rcirc-startup-channels-alist
       '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#rcirc" "#scheme")
-        ("\\.sixapart.com$" "#mt" "#6a" "#6aservices")))
+        ("\\.sixapart.com$" "#mt" "#mt-talk" "#6a" "#6aservices")))
 
 (setq rcirc-authinfo
       (with-temp-buffer
@@ -23,10 +23,12 @@
         (read (current-buffer))))
 
 (add-hook 'rcirc-mode-hook
-	  (lambda ()
+	  '(lambda ()
            (flyspell-mode t)
 	    (rcirc-track-minor-mode 1)
            (set (make-local-variable 'scroll-conservatively) 8192)))
+
+
 
 ;; fonts
 (defface rcirc-nick-in-message '((t (:background "lemon chiffon")))
@@ -67,5 +69,11 @@
                       rcirc-default-user-full-name
                       channels))))
 
-(defun rcirc-handler-301 (process cmd sender args)
-  "/away message handler")
+
+
+(add-hook 'rcirc-print-hooks
+          '(lambda (process sender response target text)
+             (let ((current-nick (rcirc-nick process)))
+               (when (and (string-match current-nick text)
+                          (not (string= sender current-nick)))
+                 (growl "You were mentioned" text)))))
