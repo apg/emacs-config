@@ -8,10 +8,9 @@
       rcirc-default-user-full-name "Andrew Gwozdziewycz"
       rcirc-prompt "%n> "; list nick name
       rcirc-fill-prefix "  "
-      rcirc-time-format "%Y-%m-%d %H:%M"
+      rcirc-time-format "%H:%M"
       rcirc-keywords '("andrewg" "apgwoz" "ap9" "apgw")
       rcirc-buffer-maximum-lines 8192)
-
 
 (setq rcirc-startup-channels-alist
       '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#rcirc" "#scheme")
@@ -51,10 +50,11 @@
      (interactive "i")
      (unless process
        (error "There's no process for this target"))
-     (let* ((server (car process-contact process))
+     (let* ((server (car (process-contact process)))
             (port (process-contact process :service))
             (nick (rcirc-nick process))
-            channnels query-buffers)
+            (channels)
+            (query-buffers))
        (dolist (buf (buffer-list))
          (with-current-buffer buf
            (when (eq process (rcirc-buffer-process))
@@ -68,8 +68,6 @@
                       rcirc-default-user-name
                       rcirc-default-user-full-name
                       channels))))
-
-
 
 (add-hook 'rcirc-print-hooks
           '(lambda (process sender response target text)
