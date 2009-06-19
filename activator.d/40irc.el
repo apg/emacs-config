@@ -1,5 +1,11 @@
 ;; irc related stuff here.
-
+;;
+;; ~/.rcirc-authinfo is referenced which should look something like:
+;; (("freenode" nickserv "username" "password")
+;;  ("sixapart" nickserv "username2" "password2"))
+;;
+;; see the rcirc info pages for more info
+;; 
 ;;; figure out how to get notifications..
 (require 'growl)
 
@@ -8,10 +14,9 @@
       rcirc-default-user-full-name "Andrew Gwozdziewycz"
       rcirc-prompt "%n> "; list nick name
       rcirc-fill-prefix "  "
-      rcirc-time-format "%Y-%m-%d %H:%M"
+      rcirc-time-format "%H:%M"
       rcirc-keywords '("andrewg" "apgwoz" "ap9" "apgw")
       rcirc-buffer-maximum-lines 8192)
-
 
 (setq rcirc-startup-channels-alist
       '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#rcirc" "#scheme")

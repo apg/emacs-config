@@ -20,3 +20,8 @@
         (enlarge-window size))))
 (global-set-key "\C-x7" 'three-quarters-window)
 
+;;; http://blog.tuxicity.se/?p=32
+(defun google-region (beg end)
+  "Google the selected region."
+  (interactive "r")
+  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" (buffer-substring beg end))))
