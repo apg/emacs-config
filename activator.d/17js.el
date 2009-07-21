@@ -7,7 +7,7 @@
           '(lambda ()
              (flyspell-mode t)))
 
-(setq js2-auto-indent-flag 0
-      js2-indent-on-enter-key 0
-      js2-mode-escape-quotes 0
+(setq js2-auto-indent-flag t
+      js2-indent-on-enter-key t
+      js2-mode-escape-quotes t
       js2-basic-offset 2)

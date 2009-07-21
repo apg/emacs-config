@@ -1,0 +1,1 @@
+(require 'django-html-mode)
