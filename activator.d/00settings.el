@@ -26,6 +26,9 @@
 (global-font-lock-mode t)
 (set-goal-column t) 
 
+;; make command work as meta key
+(setq mac-command-modifier 'meta)
+
 (show-paren-mode t)
 
 (menu-bar-mode nil)
@@ -35,3 +38,5 @@
 ;; disabled stuff
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+
