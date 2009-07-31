@@ -56,10 +56,11 @@
      (interactive "i")
      (unless process
        (error "There's no process for this target"))
-     (let* ((server (car process-contact process))
+     (let* ((server (car (process-contact process)))
             (port (process-contact process :service))
             (nick (rcirc-nick process))
-            channnels query-buffers)
+            (channels)
+            (query-buffers))
        (dolist (buf (buffer-list))
          (with-current-buffer buf
            (when (eq process (rcirc-buffer-process))
@@ -73,8 +74,6 @@
                       rcirc-default-user-name
                       rcirc-default-user-full-name
                       channels))))
-
-
 
 (add-hook 'rcirc-print-hooks
           '(lambda (process sender response target text)
