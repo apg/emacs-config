@@ -38,6 +38,8 @@
 (defun growl (subject message &optional sticky)
   "Notify the user of something via Growl."
   (let ((command (executable-find "growlnotify")))
+    (unless command
+      (error "growlnotify not found"))
     (shell-command
      (concat command " -a Emacs -n Emacs"
              (if sticky " -s" "")
