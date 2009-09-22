@@ -26,6 +26,9 @@
 (global-font-lock-mode t)
 (set-goal-column t) 
 
+;; add /opt/local/bin to the end of the path
+(setq exec-path (append exec-path (list "/opt/local/bin")))
+
 ;; make command work as meta key
 (setq mac-command-modifier 'meta)
 

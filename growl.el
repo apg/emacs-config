@@ -37,15 +37,16 @@
 
 (defun growl (subject message &optional sticky)
   "Notify the user of something via Growl."
-  (shell-command
-   (concat "growlnotify -a Emacs -n Emacs"
-           (if sticky " -s" "")
-           " " (growl-ensure-quoted-string subject)
-           (if message
-               (concat " -m" (growl-ensure-quoted-string message))
-             ""))
-   (get-buffer-create " *growl output*"))
-  message)
+  (let ((growlloc (executable-find "growlnotify")))
+    (shell-command
+     (concat growlloc " -a Emacs -n Emacs"
+             (if sticky " -s" "")
+             " " (growl-ensure-quoted-string subject)
+             (if message
+                 (concat " -m" (growl-ensure-quoted-string message))
+               ""))
+     (get-buffer-create " *growl output*"))
+    message))
 
 (provide 'growl)
 ;;; growl.el ends here
