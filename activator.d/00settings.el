@@ -27,7 +27,7 @@
 (set-goal-column t) 
 
 ;; add /opt/local/bin to the end of the path
-(setq exec-path (append exec-path (list "/opt/local/bin")))
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; make command work as meta key
 (setq mac-command-modifier 'meta)
@@ -41,5 +41,3 @@
 ;; disabled stuff
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-

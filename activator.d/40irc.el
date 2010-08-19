@@ -20,12 +20,8 @@
 
 (setq rcirc-startup-channels-alist
       '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#rcirc" "#scheme")
-        ("\\.sixapart.com$" "#mt" "#mt-talk" "#6a" "#6aservices")))
+        ("\\.meetup.com$" "#somewhere")))
 
-(setq rcirc-authinfo
-      (with-temp-buffer
-        (insert-file-contents-literally "~/.rcirc-authinfo")
-        (read (current-buffer))))
 
 (add-hook 'rcirc-mode-hook
 	  '(lambda ()
