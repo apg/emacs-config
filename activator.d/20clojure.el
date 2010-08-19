@@ -16,6 +16,14 @@
       (require 'swank-clojure-autoload)
       (require 'slime)
 
+      (require 'paredit)
+
+      (add-hook 'clojure-mode-hook 
+                '(lambda () 
+                   (progn
+                     (highlight-parentheses-mode)
+                     (paredit-mode))))
+
       (eval-after-load "slime" (slime-setup '(slime-repl)))
 
       (slime-setup)))
