@@ -19,6 +19,9 @@
 
 (add-to-list 'backup-directory-alist (cons "." "~/.backups"))
 
+;; extra path
+
+
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "open")
 
@@ -27,7 +30,9 @@
 (set-goal-column t) 
 
 ;; add /opt/local/bin to the end of the path
+(add-to-list 'exec-path (expand-file-name "~/bin"))
 (add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "/opt/local/bin")
 
 ;; make command work as meta key
 (setq mac-command-modifier 'meta)

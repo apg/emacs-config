@@ -7,7 +7,7 @@
 ;; see the rcirc info pages for more info
 ;; 
 ;;; figure out how to get notifications..
-(require 'growl)
+(require 'notify)
 
 (setq rcirc-default-nick "apgwoz"
       rcirc-default-user-name "apgwoz"
@@ -76,4 +76,4 @@
              (let ((current-nick (rcirc-nick process)))
                (when (and (string-match current-nick text)
                           (not (string= sender current-nick)))
-                 (growl "You were mentioned" text)))))
+                 (notify (format "You were mentioned in %s" target) text)))))
