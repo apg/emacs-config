@@ -9,3 +9,6 @@
 ;; whitespace has been annoying me lately..
 (define-key global-map [f8] 'delete-trailing-whitespace)
 
+(if (string-equal "/home/andrew" (getenv "HOME"))
+    (setq x-super-keysym 'meta))
+

@@ -25,3 +25,10 @@
   "Google the selected region."
   (interactive "r")
   (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" (buffer-substring beg end))))
+
+(defun let-me-google-that-for-you (beg end)
+  "Allows you to be a nice guy, and quickly lmgtfy the current region"
+  (interactive "r")
+  (kill-new (format "http://lmgtfy.com/?q=%s" 
+                    (url-hexify-string (buffer-substring beg end)))))
+

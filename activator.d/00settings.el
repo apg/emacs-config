@@ -40,6 +40,7 @@
 (show-paren-mode t)
 
 (menu-bar-mode nil)
+(tool-bar-mode nil)
 
 (column-number-mode t)
 
