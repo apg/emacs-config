@@ -1,4 +1,5 @@
 ;; I don't like tabs, but Java programmers sure do!
+(require 'ant)
 
 (add-hook 'java-mode-hook 
           '(lambda () 
