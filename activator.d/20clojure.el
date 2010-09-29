@@ -7,13 +7,7 @@
                    (expand-file-name "~/local/swank-clojure/src/emacs"))
       (add-to-list 'load-path (expand-file-name "~/local/slime"))
 
-      (setq swank-clojure-jar-path 
-            (expand-file-name "~/local/clojure/clojure-1.1.0.jar"))
-      (setq swank-clojure-extra-classpaths
-            (list (expand-file-name "~/local/clojure-contrib/clojure-contrib.jar")))
-
       (require 'clojure-mode)
-      (require 'swank-clojure-autoload)
       (require 'slime)
 
       (require 'paredit)

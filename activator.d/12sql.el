@@ -3,4 +3,4 @@
 
 (add-hook 'sql-mode-hook 
           '(lambda ()
-             (flyspell-mode t)))
+             (flyspell-prog-mode t)))
