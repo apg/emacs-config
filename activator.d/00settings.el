@@ -39,8 +39,8 @@
 
 (show-paren-mode t)
 
-(menu-bar-mode nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 (column-number-mode t)
 

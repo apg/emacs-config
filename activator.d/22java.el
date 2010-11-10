@@ -1,4 +1,6 @@
 ;; I don't like tabs, but Java programmers sure do!
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/ant-el"))
+
 (require 'ant)
 
 (add-hook 'java-mode-hook 
