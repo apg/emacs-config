@@ -7,3 +7,6 @@
 [submodule "vendor/ant-el"]
 	path = vendor/ant-el
 	url = https://github.com/apgwoz/ant-el.git
+[submodule "vendor/clojure-mode"]
+	path = vendor/clojure-mode
+	url = https://github.com/technomancy/clojure-mode.git

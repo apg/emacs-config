@@ -1,4 +1,6 @@
-; http://wiki.unto.net/setting-up-clojure-and-slime
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/clojure-mode"))
+(require 'clojure-mode)
+
 
 (add-hook 'clojure-mode-hook 
           '(lambda () 
