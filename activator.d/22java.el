@@ -4,9 +4,10 @@
 (add-hook 'java-mode-hook 
           '(lambda () 
              (progn
-               (flyspell-prog-mode t)
+               (flyspell-mode t)
+               (flyspell-prog-mode)
                (c-set-style "Ellemtel")
-               (set (make-local-variable 'c-basic-offset) 3)
-               (set (make-local-variable 'tab-width) 3)
+               (set (make-local-variable 'c-basic-offset) 2)
+               (set (make-local-variable 'tab-width) 2)
                (set (make-local-variable 'show-trailing-whitespace) t)
                (set (make-local-variable 'indent-tabs-mode) t))))
