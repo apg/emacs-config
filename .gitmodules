@@ -10,3 +10,6 @@
 [submodule "vendor/clojure-mode"]
 	path = vendor/clojure-mode
 	url = https://github.com/technomancy/clojure-mode.git
+[submodule "vendor/emms"]
+	path = vendor/emms
+	url = http://git.savannah.gnu.org/r/emms.git
