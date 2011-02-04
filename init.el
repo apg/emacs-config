@@ -3,3 +3,4 @@
 
 (require 'activator)
 (activator-start)
+(put 'narrow-to-region 'disabled nil)

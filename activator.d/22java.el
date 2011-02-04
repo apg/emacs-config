@@ -3,6 +3,12 @@
 
 (require 'ant)
 
+(autoload 'jtags-mode "jtags" "Toggle jtags mode." t)
+(autoload 'jtags-extras "jtags-extras" "Load jtags-extras.")
+
+(add-hook 'java-mode-hook '(lambda () 
+                             (jtags-mode 1)
+                             (jtags-extras)))
 (add-hook 'java-mode-hook 
           '(lambda () 
              (progn
