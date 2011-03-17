@@ -19,8 +19,9 @@
       rcirc-buffer-maximum-lines 8192)
 
 (setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#rcirc" "#scheme")
-        ("\\.meetup.com$" "#somewhere")))
+      '(("\\.freenode\\.net$" "#autonomo.us" "#emacs" "#clojure" "#clojure-web" 
+         "#clojure-casual" "#hackandtell" "#nyhacker" "#nycpython" "#summeroflisp")
+        ("\\.meetup.com$" "#dev")))
 
 
 (add-hook 'rcirc-mode-hook
