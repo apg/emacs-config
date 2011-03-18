@@ -4,4 +4,4 @@
           '(lambda ()
              (setq whitespace-style '(line))
              (setq whitespace-line-column 77 )
-             (flyspell-prog-mode t)))
+             (flyspell-prog-mode)))
