@@ -1,15 +1,17 @@
 ;; scheme related things
 
-(require 'quack)
+(require 'slime)
 (require 'paredit)
 (require 'highlight-parentheses)
 
-(setq quack-default-program "csi")
-(setq quack-run-scheme-always-prompts-p nil)
+(autoload 'chicken-slime "chicken-slime" "SWANK backend for Chicken" t)
+
+(setq slime-csi-path "/usr/local/bin/csi")
 
 (add-hook 'scheme-mode-hook 
           '(lambda () 
              (progn
                (paredit-mode)
+               (slime-mode t)
                (highlight-parentheses-mode))))
 
