@@ -47,3 +47,5 @@
 ;; disabled stuff
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+(setq user-mail-address "web@apgwoz.com")

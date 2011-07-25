@@ -5,7 +5,7 @@
 
 (add-hook 'js2-mode-hook 
           '(lambda ()
-             (flyspell-prog-mode t)))
+             (flyspell-prog-mode)))
 
 (setq js2-auto-indent-flag t
       js2-indent-on-enter-key t

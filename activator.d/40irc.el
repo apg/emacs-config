@@ -78,3 +78,57 @@
                (when (and (string-match current-nick text)
                           (not (string= sender current-nick)))
                  (notify (format "You were mentioned in %s" target) text)))))
+
+;; (add-hook 'rcirc-receive-message-hooks
+;;           '(lambda (process command sender args line)
+;;              (message (format "process: %s" process))
+;;              (message (format "sender: %s" sender))
+;;              (message (format "args: %s" args))
+;;              (message (format "line: %s" line))
+;;              (message (format "command: %s" command))))
+
+
+;(setq rcirc-receive-message-hooks '())
+
+;; (add-hook 'rcirc-receive-message-hooks 
+;;           '(lambda (process command sender args line)
+;;              (let ((sp (format "%s" process))
+;;                    (channel (car args)))
+;;                (when (and (string-equal "#glpbacon" channel)
+;;                           (string-equal "irc.freenode.net" sp)
+;;                           (string-equal "JOIN" command))
+;;                  (rcirc-send-message process "#glpbacon" (concat sender "!"))))))
+
+
+(progn 
+  (setq rcirc-print-hooks '())
+  (setq rcirc-receive-hooks '())
+  (setq rcirc-receive-message-hooks '()))
+
+(add-hook 'rcirc-print-hooks 
+          '(lambda (process sender response target text)
+             (let ((sp (format "%s" process)))
+               (when (and (string-equal "#glpbacon" target)
+                          (string-equal "irc.freenode.net" sp)
+                          (string-match "doctor andrew:" text))
+                 (rcirc-send-message process "#glpbacon" (do-doctor (substring message 15)))))))
+
+(defun init-buffer ()
+  (let ((buf (get-buffer "*#glpbacon-doctor")))
+    (if buf
+        buf
+      (let ((buf (get-buffer-create "*#glpbacon-doctor*")))
+        (with-current-buffer buf
+          (make-doctor-variables)
+          buf)))))
+
+(defun do-doctor (message)
+  (let ((buf (init-buffer)))
+    (with-current-buffer buf
+      (delete-region (buffer-end -1) (buffer-end 1))
+      (insert message)
+      (let ((sent (doctor-readin)))
+        (insert "\n\n")
+        (doctor-doc sent)
+        (backward-sentence 1)
+        (buffer-substring (point) (buffer-end 1))))))
