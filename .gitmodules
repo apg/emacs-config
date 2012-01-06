@@ -13,3 +13,6 @@
 [submodule "vendor/emms"]
 	path = vendor/emms
 	url = http://git.savannah.gnu.org/r/emms.git
+[submodule "vendor/haskell-mode"]
+	path = vendor/haskell-mode
+	url = https://github.com/pheaver/haskell-mode.git
