@@ -16,6 +16,3 @@
 [submodule "vendor/haskell-mode"]
 	path = vendor/haskell-mode
 	url = https://github.com/pheaver/haskell-mode.git
-[submodule "vendor/coffee-mode"]
-	path = vendor/coffee-mode
-	url = https://github.com/defunkt/coffee-mode
