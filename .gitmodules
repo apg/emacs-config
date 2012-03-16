@@ -16,3 +16,6 @@
 [submodule "vendor/haskell-mode"]
 	path = vendor/haskell-mode
 	url = https://github.com/pheaver/haskell-mode.git
+[submodule "vendor/geiser"]
+	path = vendor/geiser
+	url = https://git.gitorious.org/geiser/mainline.git
