@@ -19,3 +19,6 @@
 [submodule "vendor/geiser"]
 	path = vendor/geiser
 	url = https://git.gitorious.org/geiser/mainline.git
+[submodule "vendor/coffee-mode"]
+	path = vendor/coffee-mode
+	url = https://github.com/defunkt/coffee-mode
