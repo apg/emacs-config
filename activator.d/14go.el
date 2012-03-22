@@ -1,1 +1,1 @@
-(require 'go-auto-mode)
+(require 'go-mode-load)
