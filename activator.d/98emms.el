@@ -4,3 +4,5 @@
 (require 'emms-setup)
 (emms-standard)
 (emms-default-players)
+
+(global-set-key (kbd "<pause>") 'emms-pause)

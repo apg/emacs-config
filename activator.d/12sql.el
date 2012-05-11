@@ -9,6 +9,7 @@
 
 (add-hook 'sql-mode-hook 
           '(lambda ()
-             (local-set-key "\C-x \C-e" 'sql-send-region-and-switch)
+             (local-set-key "\C-x\C-e" 'sql-send-region-and-switch)
              (flyspell-prog-mode)))
+
 

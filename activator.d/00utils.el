@@ -32,3 +32,4 @@
   (kill-new (format "http://lmgtfy.com/?q=%s" 
                     (url-hexify-string (buffer-substring beg end)))))
 
+
