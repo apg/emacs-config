@@ -49,3 +49,11 @@
 (put 'downcase-region 'disabled nil)
 
 (setq user-mail-address "web@apgwoz.com")
+
+(global-hl-line-mode +1)
+
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
+
