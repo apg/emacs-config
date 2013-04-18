@@ -25,4 +25,7 @@
 (setq org-hide-leading-stars t)
 
 (setq org-agenda-files (list 
-                        (expand-file-name "~/Dropbox/Notes")))
+                        (expand-file-name "~/Dropbox/Notes") 
+                        (expand-file-name "~/Dropbox/Notes/work") 
+                        (expand-file-name "~/Dropbox/Notes/projects")))
+
