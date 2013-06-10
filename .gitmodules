@@ -22,3 +22,6 @@
 [submodule "vendor/coffee-mode"]
 	path = vendor/coffee-mode
 	url = https://github.com/apgwoz/iced-coffee-mode.git
+[submodule "vendor/magit"]
+	path = vendor/magit
+	url = https://github.com/magit/magit.git

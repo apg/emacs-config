@@ -1,3 +1,4 @@
 ;;; Autoloads for magit
 
-(autoload 'magit-status "magit" nil t)
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/magit"))
+(require 'magit)
