@@ -25,3 +25,9 @@
 [submodule "vendor/magit"]
 	path = vendor/magit
 	url = https://github.com/magit/magit.git
+[submodule "nrepl.el"]
+	path = nrepl.el
+	url = https://github.com/clojure-emacs/nrepl.el
+[submodule "vendor/nrepl.el"]
+	path = vendor/nrepl.el
+	url = https://github.com/clojure-emacs/nrepl.el
