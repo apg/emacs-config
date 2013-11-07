@@ -7,7 +7,7 @@
 ;; see the rcirc info pages for more info
 ;; 
 ;;; figure out how to get notifications..
-(require 'notify)
+;;(require 'notify)
 
 (setq rcirc-default-nick "apgwoz"
       rcirc-default-user-name "apgwoz"
@@ -72,12 +72,12 @@
                       rcirc-default-user-full-name
                       channels))))
 
-(add-hook 'rcirc-print-hooks
-          '(lambda (process sender response target text)
-             (let ((current-nick (rcirc-nick process)))
-               (when (and (string-match current-nick text)
-                          (not (string= sender current-nick)))
-                 (notify (format "You were mentioned in %s" target) text)))))
+;(add-hook 'rcirc-print-hooks
+;          '(lambda (process sender response target text)
+;             (let ((current-nick (rcirc-nick process)))
+;               (when (and (string-match current-nick text)
+;                          (not (string= sender current-nick)))
+;                 (notify (format "You were mentioned in %s" target) text)))))
 
 ;; (add-hook 'rcirc-receive-message-hooks
 ;;           '(lambda (process command sender args line)

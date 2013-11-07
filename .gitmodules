@@ -31,3 +31,6 @@
 [submodule "vendor/nrepl.el"]
 	path = vendor/nrepl.el
 	url = https://github.com/clojure-emacs/nrepl.el
+[submodule "vendor/moka-mode"]
+	path = vendor/moka-mode
+	url = git@github.com:apgwoz/moka-mode.git
