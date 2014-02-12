@@ -34,3 +34,18 @@
 [submodule "vendor/moka-mode"]
 	path = vendor/moka-mode
 	url = git@github.com:apgwoz/moka-mode.git
+[submodule "vendtor/cider"]
+	path = vendtor/cider
+	url = https://github.com/clojure-emacs/cider
+[submodule "vendor/dash"]
+	path = vendor/dash
+	url = https://github.com/magnars/dash.el
+[submodule "vendor/cider"]
+	path = vendor/cider
+	url = https://github.com/clojure-emacs/cider
+[submodule "vendor/pkg-info"]
+	path = vendor/pkg-info
+	url = https://github.com/lunaryorn/pkg-info.el
+[submodule "vendor/epl"]
+	path = vendor/epl
+	url = https://github.com/cask/epl

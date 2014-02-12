@@ -1,12 +1,12 @@
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 
-(add-hook 'python-mode-hook 
+(add-hook 'python-mode-hook
           '(lambda ()
              (setq whitespace-style '(line))
              (setq whitespace-line-column 77 )
-             (set (make-local-variable 'show-trailing-whitespace) t)o
+             (set (make-local-variable 'show-trailing-whitespace) t)
              (flyspell-prog-mode)))
 
-(add-hook  'python-mode-hook 
-           (lambda () 
+(add-hook  'python-mode-hook
+           (lambda ()
              (add-to-list 'write-file-functions 'delete-trailing-whitespace)))

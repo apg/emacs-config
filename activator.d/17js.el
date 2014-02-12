@@ -1,5 +1,4 @@
 ;; requires
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/vendor/coffee-mode"))
 (require 'coffee-mode)
 
 (autoload 'js2-mode "js2" nil t)

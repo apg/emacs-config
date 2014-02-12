@@ -1,6 +1,12 @@
 ;;;; things that get set globally
 
-(setq inhibit-startup-message t) 
+;; On OSX, emacs doesn't inherit the custom PATH from bash, because fucking stupid.
+(let ((home-bin (expand-file-name "~/bin")))
+  (unless (string-match-p home-bin (getenv "PATH"))
+    (message "not a chance hot shot")
+    (setenv "PATH" (concat (getenv "PATH") ":" home-bin))))
+
+(setq inhibit-startup-message t)
 (setq default-tab-width 7)
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
@@ -27,7 +33,7 @@
 
 (normal-erase-is-backspace-mode 0)
 (global-font-lock-mode t)
-(set-goal-column t) 
+(set-goal-column t)
 
 ;; add /opt/local/bin to the end of the path
 (add-to-list 'exec-path (expand-file-name "~/bin"))
@@ -56,4 +62,3 @@
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name))
                  "%b"))))
-

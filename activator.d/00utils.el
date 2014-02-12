@@ -11,7 +11,7 @@
     (if (looking-at "\C-z")
         (delete-char 1))))
 
-;;; sane window sizing... 
+;;; sane window sizing...
 (defun three-quarters-window ()
   "Resizes current window big"
   (interactive)
@@ -29,7 +29,5 @@
 (defun let-me-google-that-for-you (beg end)
   "Allows you to be a nice guy, and quickly lmgtfy the current region"
   (interactive "r")
-  (kill-new (format "http://lmgtfy.com/?q=%s" 
+  (kill-new (format "http://lmgtfy.com/?q=%s"
                     (url-hexify-string (buffer-substring beg end)))))
-
-

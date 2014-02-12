@@ -1,6 +1,5 @@
 ;; scheme related things
 
-;;(require 'slime)
 (require 'paredit)
 (require 'highlight-parentheses)
 
