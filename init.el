@@ -5,6 +5,7 @@
 
 (if (require 'package nil t)
     (progn
+      (warn "YOU ARE USING HTTP FOR MARMALADE. CHECK TO SEE IF THIS HAS CHANGED!")
       (add-to-list 'package-archives
 		   '("marmalade" . "http://marmalade-repo.org/packages/"))
 

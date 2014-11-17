@@ -3,6 +3,12 @@
   "Turn on pseudo-structural editing of Lisp code."
   t)
 
+
+;;; Stolen from technomancy
+(defun apg-paredit-no-space ()
+  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil))))
+
 ;;; general program mode hooks
 (defvar apg-prog-mode-hooks '(highlight-parentheses-mode
                               flyspell-prog-mode
@@ -49,6 +55,7 @@
     (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
     (add-to-list 'auto-mode-alist '("^rebar.config$" . erlang-mode))
     (add-hook 'erlang-mode-hook (lambda () (run-hooks 'prog-mode-hook)))
+    (add-hook 'erlang-mode-hook 'apg-paredit-no-space)
     (add-hook 'erlang-mode-hook 'enable-paredit-mode)
 
     (eval-after-load "erlang-mode"
