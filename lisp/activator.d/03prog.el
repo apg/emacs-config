@@ -48,7 +48,9 @@
 
 ;;; erlang
 (add-to-list 'ido-ignore-files ".beam")
-(let ((erlang-el-path "/usr/local/lib/erlang/lib/tools-2.6.12/emacs"))
+
+(let ((erlang-el-path "/usr/local/lib/erlang/lib/tools-2.6.12/emacs")
+      (erlmode-el-path (expand-file-name "~/.emacs.d/site-lisp/erlmode")))
   (when (file-exists-p erlang-el-path)
     (add-to-list 'load-path erlang-el-path)
     (autoload 'erlang-mode "erlang" "erlang" t)
@@ -66,4 +68,8 @@
          (define-key erlang-mode-map "]" 'paredit-close-bracket)
          (define-key erlang-mode-map (kbd "C-M-h") 'backward-kill-word)
          (define-key erlang-mode-map (kbd "RET")
-           'reindent-then-newline-and-indent)))))
+           'reindent-then-newline-and-indent)
+
+         (when (file-exists-p erlmode-el-path)
+           (add-to-list 'load-path erlmode-el-path)
+           (require 'erlmode-start))))))

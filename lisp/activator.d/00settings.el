@@ -2,7 +2,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 
-(ido-mode)
+(ido-mode t)
 
 ;;; get rid of tabs
 (setq default-tab-width 7)
