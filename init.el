@@ -1,0 +1,27 @@
+(require 'cl)
+
+(add-to-list 'load-path (expand-file-name "~/emacs.d/lisp/"))
+(setq activator-load-path (expand-file-name "~/.emacs.d/lisp/activator.d/"))
+
+(if (require 'package nil t)
+    (progn
+      (add-to-list 'package-archives
+		   '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+      (defvar apg-packages '(paredit
+			     magit
+			     markdown-mode
+			     yaml-mode
+			     highlight-parentheses
+			     coffee-mode
+			     geiser
+			     go-mode))
+      (package-initialize)
+
+      (dolist (p apg-packages)
+	(when (not (package-installed-p p))
+	  (package-install p))))
+  (warn "NO package.el!"))
+
+(load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
+(activator-start)
