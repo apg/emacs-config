@@ -5,18 +5,18 @@
 
 
 ;;; Stolen from technomancy
-(defun apg-paredit-no-space ()
+(defun apg/paredit-no-space ()
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
        '((lambda (endp delimiter) nil))))
 
 ;;; general program mode hooks
-(defvar apg-prog-mode-hooks '(highlight-parentheses-mode
+(defvar apg/prog-mode-hooks '(highlight-parentheses-mode
                               flyspell-prog-mode
                               (lambda ()
                                 (set (make-local-variable 'show-trailing-whitespace) t)
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
 
-(dolist (m apg-prog-mode-hooks)
+(dolist (m apg/prog-mode-hooks)
   (add-hook 'prog-mode-hook m))
 
 ;;; lisp-mode
@@ -57,7 +57,7 @@
     (add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode))
     (add-to-list 'auto-mode-alist '("^rebar.config$" . erlang-mode))
     (add-hook 'erlang-mode-hook (lambda () (run-hooks 'prog-mode-hook)))
-    (add-hook 'erlang-mode-hook 'apg-paredit-no-space)
+    (add-hook 'erlang-mode-hook 'apg/paredit-no-space)
     (add-hook 'erlang-mode-hook 'enable-paredit-mode)
 
     (eval-after-load "erlang-mode"
