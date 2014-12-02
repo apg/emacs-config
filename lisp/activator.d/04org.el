@@ -11,8 +11,6 @@
       (re-search-forward "^$")
       (insert (concat "\n* [" (format-time-string "%F %a") "]")))))
 
-
-
 (progn
   (require 'org-capture)
 
@@ -48,6 +46,10 @@
            "** TODO %?\n  %i\n  %a")
           ("T" "(Heroku) Todo" plain (file+function "~/Dropbox/Notes/heroku/notes.org" apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
+          ("e" "Notes Entry" plain (file+function "~/Dropbox/Notes/notes.org" apg/find-todays-insertion-point)
+           "** %?\n  %i\n")
+          ("E" "(Heroku) Notes Entry" plain (file+function "~/Dropbox/Notes/heroku/notes.org" apg/find-todays-insertion-point)
+           "** %?\n  %i\n")
           ("p" "Postit Entry" plain (function
                                      (lambda ()
                                        (let ((filename
@@ -57,7 +59,7 @@
                                                          (get-buffer-create filename)))
                                          (set-visited-file-name filename)
                                          (end-of-buffer))))
-           "* [[][%?]]\n  - "
+           "* [[][%?]]\n%i\n"
            :empty-lines 1)))
 
   (setq org-publish-project-alist
