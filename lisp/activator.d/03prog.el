@@ -66,7 +66,6 @@
          (define-key erlang-mode-map "}" 'paredit-close-curly)
          (define-key erlang-mode-map "[" 'paredit-open-bracket)
          (define-key erlang-mode-map "]" 'paredit-close-bracket)
-         (define-key erlang-mode-map (kbd "C-M-h") 'backward-kill-word)
          (define-key erlang-mode-map (kbd "RET")
            'reindent-then-newline-and-indent)
 

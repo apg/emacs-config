@@ -42,24 +42,24 @@
       (setq org-default-notes-file notes-file)))
 
   (setq org-capture-templates
-        `(("t" "Todo" plain (file+function "~/Dropbox/Notes/notes.org" apg/find-todays-insertion-point)
+        `(("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
-          ("T" "(Heroku) Todo" plain (file+function "~/Dropbox/Notes/heroku/notes.org" apg/find-todays-insertion-point)
+          ("T" "(Work) Todo" plain (file+function apg/work-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
-          ("e" "Notes Entry" plain (file+function "~/Dropbox/Notes/notes.org" apg/find-todays-insertion-point)
+          ("e" "Notes Entry" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** %?\n  %i\n")
-          ("E" "(Heroku) Notes Entry" plain (file+function "~/Dropbox/Notes/heroku/notes.org" apg/find-todays-insertion-point)
+          ("E" "(Work) Notes Entry" plain (file+function apg/work-notes-file apg/find-todays-insertion-point)
            "** %?\n  %i\n")
           ("p" "Postit Entry" plain (function
                                      (lambda ()
                                        (let ((filename
-                                              (concat "~/Dropbox/Notes/postits/"
+                                              (concat apg/postits-dir
                                                       (format-time-string "%F") ".org")))
                                          (set-buffer (or (get-file-buffer filename)
                                                          (get-buffer-create filename)))
                                          (set-visited-file-name filename)
                                          (end-of-buffer))))
-           "* [[][%?]]\n%i\n"
+           "* [[%c][%?]]\n%i\n"
            :empty-lines 1)))
 
   (setq org-publish-project-alist

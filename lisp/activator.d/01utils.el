@@ -16,4 +16,14 @@
     (if (> size 0)
         (enlarge-window size))))
 
+(defun unfill-region (start end)
+  "Unfills a region by refilling with `point-max` as fill-column"
+  (interactive "r")
+  (let ((fill-column (point-max)))
+    (fill-region start end)))
 
+(defun unfill-paragraph ()
+  "Unfills a paragraph by refilling with `point-max` as fill-column"
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph)))
