@@ -8,7 +8,7 @@
     (if (looking-at "\C-z")
         (delete-char 1))))
 
-;;; sane window sizing... 
+;;; sane window sizing...
 (defun three-quarters-window ()
   "Resizes current window big"
   (interactive)

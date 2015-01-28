@@ -31,11 +31,24 @@
      (setq geiser-imple-installed-implementations '(guile))))
 
 ;;; go
+(setq *golint-path* (expand-file-name
+                    (concat (getenv "GOPATH")
+                            "/src/github.com/golang/lint/misc/emacs")))
+
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
             (add-hook 'before-save-hook 'gofmt nil t)))
+
+;; add golint hook iff golint is installed.
+(when (and (file-exists-p *golint-path*) (executable-find "golint"))
+  (add-to-list 'load-path *golint-path*)
+  (require 'golint)
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'golint nil t))))
+
 (eval-after-load "go-mode"
   '(progn
      (if (executable-find "goimports")
