@@ -31,7 +31,7 @@
 (put 'set-goal-column 'disabled nil)
 
 (setq user-full-name "Andrew Gwozdziewycz")
-(setq user-mail-address "web@apgwoz.com")
+(setq user-mail-address "me@apgwoz.com")
 
 (global-hl-line-mode +1)
 
