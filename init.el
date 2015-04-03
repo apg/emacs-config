@@ -16,7 +16,8 @@
 			     highlight-parentheses
 			     coffee-mode
 			     geiser
-			     go-mode))
+			     go-mode
+                          gist))
       (package-initialize)
 
       (dolist (p apg-packages)

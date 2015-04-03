@@ -40,6 +40,8 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b"))))
 
+;;; No more extra frames for ediff!
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 ;;; highlight parentheses colors
 (eval-after-load "highlight-parentheses"
@@ -51,3 +53,6 @@
 (setq apg/personal-notes-file (expand-file-name "~/Dropbox/Notes/notes.org"))
 (setq apg/work-notes-file (expand-file-name "~/Dropbox/Notes/heroku/notes.org"))
 (setq apg/postits-dir (expand-file-name "~/Dropbox/Notes/postits/"))
+
+;;; don't disable this. it's useful!
+(put 'narrow-to-region 'disabled nil)
