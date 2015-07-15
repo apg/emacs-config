@@ -85,3 +85,12 @@
          (when (file-exists-p erlmode-el-path)
            (add-to-list 'load-path erlmode-el-path)
            (require 'erlmode-start))))))
+
+;; common lisp / Slime
+(let ((slime-helper-el (expand-file-name "~/quicklisp/slime-helper.el")))
+  (if (file-exists-p slime-helper-el)
+      (load slime-helper-el)
+    (message "Woah there partner! Do you have the quicklisp slime-helper installed?")))
+
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
