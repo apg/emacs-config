@@ -28,7 +28,9 @@
 (add-hook 'scheme-mode-hook           'enable-paredit-mode)
 (eval-after-load "geiser"
   '(progn
-     (setq geiser-imple-installed-implementations '(guile))))
+     (when (file-exists-p "/usr/local/racket/bin/racket")
+       (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
+     (setq geiser-active-implementations '(racket guile))))
 
 ;;; go
 (setq *golint-path* (expand-file-name
