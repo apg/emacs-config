@@ -7,17 +7,21 @@
     (progn
       (warn "YOU ARE USING HTTP FOR MARMALADE. CHECK TO SEE IF THIS HAS CHANGED!")
       (add-to-list 'package-archives
-		   '("marmalade" . "http://marmalade-repo.org/packages/"))
+                   '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+      (add-to-list 'package-archives
+                   '("melpa" . "http://melpa.org/packages/"))
 
       (defvar apg-packages '(paredit
-			     magit
-			     markdown-mode
-			     yaml-mode
-			     highlight-parentheses
-			     coffee-mode
-			     geiser
-			     go-mode
-                          gist))
+                             magit
+                             markdown-mode
+                             yaml-mode
+                             highlight-parentheses
+                             coffee-mode
+                             geiser
+                             go-mode
+                             git-gutter
+                             gist))
       (package-initialize)
 
       (dolist (p apg-packages)
