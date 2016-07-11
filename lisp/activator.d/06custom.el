@@ -11,3 +11,7 @@
     (require 'emms-info))
   (setq emms-player-list (list emms-player-mplayer emms-player-mplayer-playlist))
   (setq emms-playlist-default-major-mode 'emms-playlist-mode))
+
+;;; git-gutter custom
+(custom-set-variables
+ '(git-gutter:lighter " GG"))

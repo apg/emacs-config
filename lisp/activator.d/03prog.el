@@ -1,3 +1,5 @@
+(require 'git-gutter)
+
 ;;; paredit autoload
 (autoload 'enable-paredit-mode "paredit"
   "Turn on pseudo-structural editing of Lisp code."
@@ -11,10 +13,13 @@
 
 ;;; general program mode hooks
 (defvar apg/prog-mode-hooks '(highlight-parentheses-mode
+                              git-gutter-mode
                               flyspell-prog-mode
                               (lambda ()
                                 (set (make-local-variable 'show-trailing-whitespace) t)
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
+
+
 
 (dolist (m apg/prog-mode-hooks)
   (add-hook 'prog-mode-hook m))

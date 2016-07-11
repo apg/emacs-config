@@ -29,5 +29,6 @@
 	  (package-install p))))
   (warn "NO package.el!"))
 
+(load-file (expand-file-name "~/.emacs.d/site-lisp/git-link.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
 (activator-start)
