@@ -2,3 +2,9 @@ elpa/
 eshell/
 auto-save-list/
 *~
+/site-lisp/
+/bookmarks
+/emms/cache
+/url/cookies
+/ido.last
+/tramp

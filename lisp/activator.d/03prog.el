@@ -56,11 +56,16 @@
             (lambda ()
               (add-hook 'before-save-hook 'golint nil t))))
 
+
 (eval-after-load "go-mode"
   '(progn
      (if (executable-find "goimports")
          (setq gofmt-command "goimports")
-       (warn "NO goimports found. `go get github.com/bradfitz/goimports`"))))
+       (warn "NO goimports found. `go get github.com/bradfitz/goimports`"))
+     (if (executable-find "godef")
+         (add-hook 'go-mode-hook (lambda ()
+                                   (local-set-key (kbd "M-.") 'godef-jump)))
+       (warn "NO godef found. `go get github.com/rogpeppe/godef`"))))
 
 ;;; css
 (eval-after-load "css-mode"
