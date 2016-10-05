@@ -12,8 +12,7 @@
       (add-to-list 'package-archives
                    '("melpa" . "http://melpa.org/packages/"))
 
-      (defvar apg-packages '(paredit
-                             magit
+      (defvar apg-packages '(magit
                              markdown-mode
                              yaml-mode
                              highlight-parentheses
@@ -31,4 +30,5 @@
 
 (load-file (expand-file-name "~/.emacs.d/site-lisp/git-link.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
+(load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
 (activator-start)
