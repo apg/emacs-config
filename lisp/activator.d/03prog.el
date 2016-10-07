@@ -61,7 +61,7 @@
   '(progn
      (if (executable-find "goimports")
          (setq gofmt-command "goimports")
-       (warn "NO goimports found. `go get github.com/bradfitz/goimports`"))
+       (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports`"))
      (if (executable-find "godef")
          (add-hook 'go-mode-hook (lambda ()
                                    (local-set-key (kbd "M-.") 'godef-jump)))

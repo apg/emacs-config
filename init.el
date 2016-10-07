@@ -7,7 +7,7 @@
     (progn
       (warn "YOU ARE USING HTTP FOR MARMALADE. CHECK TO SEE IF THIS HAS CHANGED!")
       (add-to-list 'package-archives
-                   '("marmalade" . "https://marmalade-repo.org/packages/"))
+                   '("marmalade" . "http://marmalade-repo.org/packages/"))
 
       (add-to-list 'package-archives
                    '("melpa" . "http://melpa.org/packages/"))
@@ -20,7 +20,8 @@
                              geiser
                              go-mode
                              git-gutter
-                             gist))
+                             gist
+                             darktooth-theme))
       (package-initialize)
 
       (dolist (p apg-packages)
@@ -32,3 +33,9 @@
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
 (activator-start)
+
+(custom-set-variables
+ '(custom-safe-themes
+   (quote
+    ("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default)))
+ '(git-gutter:lighter " GG"))
