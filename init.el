@@ -5,10 +5,6 @@
 
 (if (require 'package nil t)
     (progn
-      (warn "YOU ARE USING HTTP FOR MARMALADE. CHECK TO SEE IF THIS HAS CHANGED!")
-      (add-to-list 'package-archives
-                   '("marmalade" . "http://marmalade-repo.org/packages/"))
-
       (add-to-list 'package-archives
                    '("melpa" . "http://melpa.org/packages/"))
 
@@ -16,18 +12,17 @@
                              markdown-mode
                              yaml-mode
                              highlight-parentheses
-                             coffee-mode
                              geiser
                              go-mode
                              git-gutter
                              gist
                              darktooth-theme))
       (package-initialize)
-
       (dolist (p apg-packages)
-	(when (not (package-installed-p p))
-	  (package-install p))))
-  (warn "NO package.el!"))
+       (when (not (package-installed-p p))
+         (package-install p))))
+
+      (warn "NO package.el!"))
 
 (load-file (expand-file-name "~/.emacs.d/site-lisp/git-link.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
