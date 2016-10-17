@@ -1,8 +1,8 @@
 (setq rcirc-server-alist
-      '("irc.freenode.net"
-        :channels ("#emacs" "#hackandtell" "#racket" "#lobsters")
-        :user-name "apgwoz"
-        :nick "_apg"))
+      '(("irc.freenode.net"
+         :channels ("#emacs" "#hackandtell" "#racket" "#lobsters")
+         :user-name "apgwoz"
+         :nick "_apg")))
 
 (add-hook 'rcirc-mode-hook
           (lambda ()
