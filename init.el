@@ -6,7 +6,7 @@
 (if (require 'package nil t)
     (progn
       (add-to-list 'package-archives
-                   '("melpa" . "http://melpa.org/packages/"))
+                   '("melpa" . "http://stable.melpa.org/packages/"))
 
       (defvar apg-packages '(magit
                              markdown-mode
