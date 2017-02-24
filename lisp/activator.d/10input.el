@@ -1,2 +1,2 @@
 ;;; because technomancy laughed at me.
-(defun shrug () (interactive) (insert "¯\_(ツ)_/¯"))
+(defun shrug () (interactive) (insert "¯\\_(ツ)_/¯"))
