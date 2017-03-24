@@ -13,6 +13,8 @@
 
 (progn
   (require 'org-capture)
+  ;; Add completion time to done items.
+  (setq org-log-done 'time)
 
   (add-hook 'org-mode-hook 'flyspell-mode)
 
