@@ -48,6 +48,10 @@
             (set (make-local-variable 'tab-width) 2)
             (add-hook 'before-save-hook 'gofmt nil t)))
 
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'govet nil t)))
+
 ;; add golint hook iff golint is installed.
 (when (and (file-exists-p *golint-path*) (executable-find "golint"))
   (add-to-list 'load-path *golint-path*)
