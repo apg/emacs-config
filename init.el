@@ -15,6 +15,7 @@
                              geiser
                              go-mode
                              git-gutter
+                             git-link
                              gist
                              darktooth-theme))
       (package-initialize)
@@ -23,10 +24,6 @@
          (package-install p))))
 
       (warn "NO package.el!"))
-
-(let ((gl (expand-file-name "~/.emacs.d/site-lisp/git-link.el")))
-  (when (file-exists-p gl)
-    (load-file gl)))
 
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
