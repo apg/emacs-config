@@ -15,6 +15,7 @@
                              geiser
                              go-mode
                              git-gutter
+                             git-link
                              gist
                              darktooth-theme))
       (package-initialize)
@@ -24,16 +25,26 @@
 
       (warn "NO package.el!"))
 
-(let ((gl (expand-file-name "~/.emacs.d/site-lisp/git-link.el")))
-  (when (file-exists-p gl)
-    (load-file gl)))
-
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
+(load-file (expand-file-name "~/.emacs.d/lisp/scribble-mode.el"))
 (activator-start)
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
     ("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default)))
- '(git-gutter:lighter " GG"))
+ '(git-gutter:lighter " GG")
+ '(package-selected-packages
+   (quote
+    (git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -46,7 +46,8 @@
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
-            (add-hook 'before-save-hook 'gofmt nil t)))
+            (add-hook 'before-save-hook 'gofmt nil t)
+            (local-set-key (kbd "M-*") 'pop-tag-mark)))
 
 (add-hook 'go-mode-hook
           (lambda ()
