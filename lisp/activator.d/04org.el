@@ -19,7 +19,7 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
 
   (setq org-todo-keywords
-        '((sequence "TODO" "INPROGRESS" "|" "DONE")
+        '((sequence "TODO" "INPROGRESS" "|" "DONE" "FORWARDED")
           (sequence "BUG" "VERIFY" "|" "FIXED" "WONTFIX")
           (sequence "|" "CANCELLED" "NEVER" "DELEGATED" "EXTERNAL")))
 
@@ -30,6 +30,7 @@
           ("VERIFY" . org-block)
           ("DONE" . org-done)
           ("FIXED" . org-done)
+          ("FORWARDED" . org-archived)
           ("WONTFIX" . org-done)
           ("CANCELED" . org-table)
           ("NEVER" . org-table)
