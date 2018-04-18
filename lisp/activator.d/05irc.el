@@ -1,6 +1,8 @@
 (setq rcirc-server-alist
       '(("irc.freenode.net"
-         :channels ("#emacs" "#hackandtell" "#racket" "#lobsters" "#dorkbotpdx")
+         :channels ("#emacs" "#hackandtell" "#racket"
+                    "#lobsters" "#dorkbotpdx" "#fennel"
+                    "#freebsd", "#metabug")
          :user-name "apgwoz"
          :nick "_apg")))
 
