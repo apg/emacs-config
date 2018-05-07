@@ -28,6 +28,7 @@
 (load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
 (load-file (expand-file-name "~/.emacs.d/lisp/scribble-mode.el"))
+(load-file (expand-file-name "~/.emacs.d/lisp/fennel-mode.el"))
 (activator-start)
 
 (custom-set-variables

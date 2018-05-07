@@ -5,6 +5,9 @@
   "Turn on pseudo-structural editing of Lisp code."
   t)
 
+;;; autoload for fennel
+(autoload 'fennel-mode "fennel-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
 
 ;;; Stolen from technomancy
 (defun apg/paredit-no-space ()
@@ -19,8 +22,6 @@
                                 (set (make-local-variable 'show-trailing-whitespace) t)
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
 
-
-
 (dolist (m apg/prog-mode-hooks)
   (add-hook 'prog-mode-hook m))
 
@@ -29,6 +30,7 @@
 (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook       'enable-paredit-mode)
 
+
 ;;; scheme
 (add-hook 'scheme-mode-hook           'enable-paredit-mode)
 (eval-after-load "geiser"
@@ -36,6 +38,9 @@
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
      (setq geiser-active-implementations '(racket guile))))
+
+;;; fennel
+(add-hook 'fennel-mode-hook 'enable-paredit-mode)
 
 ;;; go
 (setq *golint-path* (expand-file-name
