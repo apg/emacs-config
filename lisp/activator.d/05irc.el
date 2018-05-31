@@ -2,7 +2,7 @@
       '(("irc.freenode.net"
          :channels ("#emacs" "#hackandtell" "#racket"
                     "#lobsters" "#dorkbotpdx" "#fennel"
-                    "#freebsd", "#metabug")
+                    "#freebsd" "#metabug")
          :user-name "apgwoz"
          :nick "_apg")))
 
