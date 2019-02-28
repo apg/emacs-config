@@ -9,6 +9,10 @@
 (autoload 'fennel-mode "fennel-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
 
+;; autoload for Rust
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 ;;; Stolen from technomancy
 (defun apg/paredit-no-space ()
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
@@ -29,7 +33,6 @@
 (add-hook 'lisp-mode-hook             'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook       'enable-paredit-mode)
-
 
 ;;; scheme
 (add-hook 'scheme-mode-hook           'enable-paredit-mode)
@@ -116,3 +119,7 @@
 
 ;; Replace "sbcl" with the path to your implementation
 (setq inferior-lisp-program "sbcl")
+
+;; rust
+(eval-after-load "rust-mode"
+  '(add-hook 'rust-mode-hook 'rust-enable-format-on-save))

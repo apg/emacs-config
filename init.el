@@ -1,7 +1,11 @@
 (require 'cl)
 
-(add-to-list 'load-path (expand-file-name "~/emacs.d/lisp/"))
-(setq activator-load-path (expand-file-name "~/.emacs.d/lisp/activator.d/"))
+(add-to-list 'load-path (expand-file-name
+                         (concat user-emacs-directory "lisp/")))
+
+(setq activator-load-path (expand-file-name
+                           (concat user-emacs-directory
+                                   "lisp/activator.d/")))
 
 (if (require 'package nil t)
     (progn
@@ -26,11 +30,9 @@
 
       (warn "NO package.el!"))
 
-(load-file (expand-file-name "~/.emacs.d/lisp/activator.el"))
-(load-file (expand-file-name "~/.emacs.d/lisp/paredit.el"))
-(load-file (expand-file-name "~/.emacs.d/lisp/scribble-mode.el"))
-(load-file (expand-file-name "~/.emacs.d/lisp/writegood-mode.el"))
-(load-file (expand-file-name "~/.emacs.d/lisp/fennel-mode.el"))
+(dolist (p '("paredit.el" "writegood-mode.el" "fennel-mode.el" "rust-mode.el" "activator.el"))
+  (load-file (expand-file-name
+              (concat user-emacs-directory "lisp/" p))))
 
 (activator-start)
 
