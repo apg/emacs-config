@@ -36,6 +36,7 @@
 
 ;;; scheme
 (add-hook 'scheme-mode-hook           'enable-paredit-mode)
+
 (eval-after-load "geiser"
   '(progn
      (when (file-exists-p "/usr/local/racket/bin/racket")
@@ -50,16 +51,33 @@
                     (concat (getenv "GOPATH")
                             "/src/github.com/golang/lint/misc/emacs")))
 
+;; basic custom
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
-            (add-hook 'before-save-hook 'gofmt nil t)
             (local-set-key (kbd "M-*") 'pop-tag-mark)))
 
 (add-hook 'go-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'govet nil t)))
+            (add-hook 'before-save-hook 'gofmt-before-save nil t)))
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (require 'lsp-mode)
+            (require 'company-lsp)
+            (lsp)
+            (setq lsp-enable-snippet nil)
+            (setq lsp-enable-indentation t)
+            (local-set-key (kbd "M-?") 'company-complete)))
+
+(eval-after-load "go-mode"
+  '(progn
+     (when (not (executable-find "gopls"))
+       (warn "NO gopls found. `go get golang.org/x/tools/gopls"))
+     (if (executable-find "goimports")
+         (setq gofmt-command "goimports")
+       (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports`"))))
 
 ;; add golint hook iff golint is installed.
 (when (and (file-exists-p *golint-path*) (executable-find "golint"))
@@ -68,17 +86,6 @@
   (add-hook 'go-mode-hook
             (lambda ()
               (add-hook 'before-save-hook 'golint nil t))))
-
-
-(eval-after-load "go-mode"
-  '(progn
-     (if (executable-find "goimports")
-         (setq gofmt-command "goimports")
-       (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports`"))
-     (if (executable-find "godef")
-         (add-hook 'go-mode-hook (lambda ()
-                                   (local-set-key (kbd "M-.") 'godef-jump)))
-       (warn "NO godef found. `go get github.com/rogpeppe/godef`"))))
 
 ;;; css
 (eval-after-load "css-mode"

@@ -27,3 +27,8 @@
   (interactive)
   (let ((fill-column (point-max)))
     (fill-paragraph)))
+
+(defun font-lock-restart ()
+  (interactive)
+  (setq font-lock-mode-major-mode nil)
+  (font-lock-fontify-buffer))
