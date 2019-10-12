@@ -54,5 +54,14 @@
 (setq apg/work-notes-file (expand-file-name "~/Dropbox/Notes/heroku/notes.org"))
 (setq apg/postits-dir (expand-file-name "~/Dropbox/Notes/postits/"))
 
+
+(setq browse-url-browser-function
+      (case system-type
+          ((darwin) 'browse-url-default-macosx-browser)
+        ((gnu/linux) 'browse-url-firefox)
+        ((berkeley-unix) 'browse-url-firefox)
+        (t eww-browse-url)))
+
+
 ;;; don't disable this. it's useful!
 (put 'narrow-to-region 'disabled nil)

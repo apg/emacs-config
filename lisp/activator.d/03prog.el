@@ -23,6 +23,7 @@
                               git-gutter-mode
                               flyspell-prog-mode
                               (lambda ()
+                                (setq tab-width 2)
                                 (set (make-local-variable 'show-trailing-whitespace) t)
                                 (add-hook 'before-save-hook 'delete-trailing-whitespace nil t))))
 
@@ -41,7 +42,7 @@
   '(progn
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
-     (setq geiser-active-implementations '(racket guile))))
+     (setq geiser-active-implementations '(racket guile chicken))))
 
 ;;; fennel
 (add-hook 'fennel-mode-hook 'enable-paredit-mode)
