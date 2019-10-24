@@ -47,10 +47,8 @@
 ;;; fennel
 (add-hook 'fennel-mode-hook 'enable-paredit-mode)
 
+
 ;;; go
-(setq *golint-path* (expand-file-name
-                    (concat (getenv "GOPATH")
-                            "/src/github.com/golang/lint/misc/emacs")))
 
 ;; basic custom
 (add-hook 'go-mode-hook
@@ -67,9 +65,9 @@
           (lambda ()
             (require 'lsp-mode)
             (require 'company-lsp)
-            (lsp)
             (setq lsp-enable-snippet nil)
             (setq lsp-enable-indentation t)
+            (lsp)
             (local-set-key (kbd "M-?") 'company-complete)))
 
 (eval-after-load "go-mode"
@@ -79,14 +77,6 @@
      (if (executable-find "goimports")
          (setq gofmt-command "goimports")
        (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports`"))))
-
-;; add golint hook iff golint is installed.
-(when (and (file-exists-p *golint-path*) (executable-find "golint"))
-  (add-to-list 'load-path *golint-path*)
-  (require 'golint)
-  (add-hook 'go-mode-hook
-            (lambda ()
-              (add-hook 'before-save-hook 'golint nil t))))
 
 ;;; css
 (eval-after-load "css-mode"
