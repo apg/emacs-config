@@ -32,7 +32,12 @@
 
       (warn "NO package.el!"))
 
-(dolist (p '("paredit.el" "writegood-mode.el" "fennel-mode.el" "rust-mode.el" "activator.el"))
+(dolist (p '("paredit.el"
+             "writegood-mode.el"
+             "fennel-mode.el"
+             "rust-mode.el"
+             "activator.el"
+             "graphviz-dot-mode.el"))
   (load-file (expand-file-name
               (concat user-emacs-directory "lisp/" p))))
 
