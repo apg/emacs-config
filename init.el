@@ -10,7 +10,7 @@
 (if (require 'package nil t)
     (progn
       (add-to-list 'package-archives
-                   '("melpa" . "http://melpa.org/packages/"))
+                   '("melpa" . "https://melpa.org/packages/"))
 
       (defvar apg-packages '(magit
                              markdown-mode
@@ -54,7 +54,7 @@
  '(git-gutter:lighter " GG")
  '(package-selected-packages
    (quote
-    (lsp-mode lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
+    (flycheck company-lsp lsp-ui lsp-mode lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
