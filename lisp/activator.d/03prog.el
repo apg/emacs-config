@@ -5,14 +5,6 @@
   "Turn on pseudo-structural editing of Lisp code."
   t)
 
-;;; autoload for fennel
-(autoload 'fennel-mode "fennel-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
-
-;; autoload for Rust
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-
 ;;; Stolen from technomancy
 (defun apg/paredit-no-space ()
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
@@ -43,6 +35,7 @@
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
      (setq geiser-active-implementations '(racket guile chicken chibi))))
+
 
 ;;; fennel
 (add-hook 'fennel-mode-hook 'enable-paredit-mode)
@@ -118,6 +111,27 @@
 ;; Replace "sbcl" with the path to your implementation
 (setq inferior-lisp-program "sbcl")
 
+
+
+;;; autoload for fennel
+(autoload 'fennel-mode "fennel-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+
+;; autoload for Rust
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 ;; rust
 (eval-after-load "rust-mode"
   '(add-hook 'rust-mode-hook 'rust-enable-format-on-save))
+
+;; graphviz
+(autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+
+(eval-after-load "graphviz-dot-mode"
+  '(progn
+     (setq graphviz-dot-indent-tab-width 2)
+     (setq graphviz-dot-auto-indent-on-newline t)
+     (setq graphviz-dot-auto-indent-on-braces nil)
+     (setq graphviz-dot-auto-indent-on-semi t)))
