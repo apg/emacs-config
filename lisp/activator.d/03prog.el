@@ -42,7 +42,7 @@
   '(progn
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
-     (setq geiser-active-implementations '(racket guile chicken))))
+     (setq geiser-active-implementations '(racket guile chicken chibi))))
 
 ;;; fennel
 (add-hook 'fennel-mode-hook 'enable-paredit-mode)
