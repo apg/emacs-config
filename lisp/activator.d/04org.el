@@ -2,7 +2,7 @@
   "Positions point at current heading in file"
   (interactive)
   (beginning-of-buffer)
-  (if (search-forward (concat "[" (format-time-string "%F %a") "]") nil t)
+  (if (search-forward (concat "Week of [") nil t)
       (progn
         (end-of-line)
         (insert "\n"))
@@ -45,7 +45,25 @@
       (setq org-default-notes-file notes-file)))
 
   (setq org-capture-templates
-        `(("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
+        `(("c" "EOD Checkin" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
+           "** EOD Checkin for %t
+
+    #+begin_src markdown
+    *Wins?*
+    *
+
+    *Misses?*
+    *
+
+    *Blockers?*
+    *
+
+    *Plan for tomorrow?*
+    *
+    #+end_src
+
+")
+          ("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
           ("T" "(Work) Todo" plain (file+function apg/work-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")

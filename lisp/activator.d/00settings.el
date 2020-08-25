@@ -50,8 +50,8 @@
            "springgreen1" "cyan1" "slateblue1" "magenta1" "purple")))
 
 
-(setq apg/personal-notes-file (expand-file-name "~/Dropbox/Notes/notes.org"))
-(setq apg/work-notes-file (expand-file-name "~/Dropbox/Notes/heroku/notes.org"))
+(setq apg/personal-notes-file (expand-file-name "~/Documents/notes.org"))
+(setq apg/work-notes-file (expand-file-name "~/Documents/notes.org"))
 (setq apg/postits-dir (expand-file-name "~/Dropbox/Notes/postits/"))
 
 
