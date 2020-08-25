@@ -65,11 +65,7 @@
 ")
           ("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
-          ("T" "(Work) Todo" plain (file+function apg/work-notes-file apg/find-todays-insertion-point)
-           "** TODO %?\n  %i\n  %a")
           ("e" "Notes Entry" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
-           "** %?\n  %i\n")
-          ("E" "(Work) Notes Entry" plain (file+function apg/work-notes-file apg/find-todays-insertion-point)
            "** %?\n  %i\n")
           ("p" "Postit Entry" plain (function
                                      (lambda ()
