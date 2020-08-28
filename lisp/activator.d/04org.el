@@ -61,7 +61,6 @@
     *Plan for tomorrow?*
     *
     #+end_src
-
 ")
           ("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
