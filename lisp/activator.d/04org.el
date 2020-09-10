@@ -46,9 +46,9 @@
 
   (setq org-capture-templates
         `(("c" "EOD Checkin" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
-           "** EOD Checkin for %t
-
-    #+begin_src markdown
+           "
+** EOD Checkin for %t
+   #+begin_src markdown
     *Wins?*
     *
 
@@ -60,7 +60,7 @@
 
     *Plan for tomorrow?*
     *
-    #+end_src
+   #+end_src
 ")
           ("t" "Todo" plain (file+function apg/personal-notes-file apg/find-todays-insertion-point)
            "** TODO %?\n  %i\n  %a")
