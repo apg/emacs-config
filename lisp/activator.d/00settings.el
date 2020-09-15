@@ -33,6 +33,10 @@
 (setq user-full-name "Andrew Gwozdziewycz")
 (setq user-mail-address "me@apgwoz.com")
 
+;; IBM Plex Preferred.
+(when (member "IBM Plex Mono" (font-family-list))
+  (set-frame-font "IBM Plex Mono-12" t t))
+
 (global-hl-line-mode +1)
 
 (setq frame-title-format
