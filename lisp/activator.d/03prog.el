@@ -37,8 +37,17 @@
      (setq geiser-active-implementations '(racket guile chicken chibi))))
 
 
-;;; fennel
-(add-hook 'fennel-mode-hook 'enable-paredit-mode)
+;;; gerbil
+(autoload 'gerbil-mode "gerbil" "Gerbil editing mode." t)
+(eval-after-load "gerbil"
+  '(progn
+     (require 'gambit)
+     (add-hook 'inferior-scheme-mode-hook 'gambit-inferior-mode)
+     (defvar gerbil-program-name
+       (expand-file-name "~/local/bin/gxi")) ; Set this for your GERBIL_HOME
+     (setq scheme-program-name gerbil-program-name)))
+
+
 
 
 ;;; go
@@ -116,6 +125,7 @@
 ;;; autoload for fennel
 (autoload 'fennel-mode "fennel-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+(add-hook 'fennel-mode-hook 'enable-paredit-mode)
 
 ;; autoload for Rust
 (autoload 'rust-mode "rust-mode" nil t)

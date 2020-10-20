@@ -13,7 +13,6 @@
 
 ;;; typing yes? blargh.
 (defalias 'yes-or-no-p 'y-or-n-p)
-
 (setq blink-matching-paren t)
 
 (add-to-list 'backup-directory-alist (cons "." "~/.backups"))
@@ -62,6 +61,8 @@
         ((berkeley-unix) 'browse-url-firefox)
         (t eww-browse-url)))
 
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
 ;;; don't disable this. it's useful!
 (put 'narrow-to-region 'disabled nil)

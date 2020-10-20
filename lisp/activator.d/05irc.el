@@ -5,7 +5,7 @@
          :channels ("#hackandtell" "#racket"
                     "#lobsters" "#fennel"
                     "#openbsd" "#metabug"
-                    "#scheme")
+                    "#scheme" "#atreus")
          :user-name "apgwoz"
          :nick "_apg")))
 
