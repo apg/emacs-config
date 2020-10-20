@@ -32,3 +32,22 @@
   (interactive)
   (setq font-lock-mode-major-mode nil)
   (font-lock-fontify-buffer))
+
+(defun hc/url-to-env (s)
+  (interactive "sURL: ")
+  (labels ((plist->alist (x a)
+                         (if (null x)
+                             a
+                           (cond
+                            ((null (cdr x))
+                              (plist->alist (cdr x) (cons (list (car x)) a)))
+                            (t (plist->alist (cddr x) (cons (list (car x) (cadr x)) a)))))))
+    (let* ((u (url-generic-parse-url s))
+           (pq (url-path-and-query u)))
+      (kill-new  (mapconcat (lambda (x)
+                              (concat (upcase (car x))
+                                      "="
+                                      (if (null (cdr x)) ""  (cadr x))))
+                            (append (plist->alist (cdr (split-string (car pq) "/")) '())
+                                    (url-parse-query-string (or (cdr pq) "")))
+                            "\n")))))

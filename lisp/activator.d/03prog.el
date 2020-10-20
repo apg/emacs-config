@@ -145,3 +145,35 @@
      (setq graphviz-dot-auto-indent-on-newline t)
      (setq graphviz-dot-auto-indent-on-braces nil)
      (setq graphviz-dot-auto-indent-on-semi t)))
+
+;; json
+(eval-after-load "js-mode"
+  '(progn
+     (when (not (executable-find "jq"))
+       (warn "NO jq found. Get it here: https://stedolan.github.io/jq/"))))
+
+(defun apg/json-format ()
+  (interactive)
+  (let* ((current (current-buffer))
+         (command (format "%s ." (executable-find "jq")))
+         (exit-status 0)
+         (output (with-temp-buffer
+                   (let ((temp-buffer (current-buffer)))
+                     (with-current-buffer current
+                       (setq exit-status (call-shell-region (point-min) (point-max) command nil temp-buffer))))
+                   (buffer-string))))
+    (if (zerop exit-status)
+        (progn
+          (delete-region (point-min) (point-max))
+          (insert output))
+      (let ((jq-output (or (get-buffer "*jq format output*")
+                            (generate-new-buffer "*jq format output*"))))
+        (with-current-buffer jq-output
+          (insert output)
+          (display-buffer jq-output))))))
+
+(add-hook 'js-mode-hook
+          '(lambda ()
+             (when (string-suffix-p ".json" (buffer-file-name))
+               (add-hook 'before-save-hook
+                         'apg/json-format nil t))))
