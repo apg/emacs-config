@@ -34,7 +34,7 @@
   '(progn
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
-     (setq geiser-active-implementations '(racket guile chicken chibi))))
+     (setq geiser-active-implementations '(racket chicken chibi))))
 
 
 ;;; fennel
@@ -115,15 +115,19 @@
 
 ;;; autoload for fennel
 (autoload 'fennel-mode "fennel-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.fnl\\'" . fennel-mode))
+(add-to-list 'auto-mode-alist '("\\.fnl$" . fennel-mode))
 
 ;; autoload for Rust
 (autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
 
 ;; rust
 (eval-after-load "rust-mode"
   '(add-hook 'rust-mode-hook 'rust-enable-format-on-save))
+
+;; HCL / terraform
+(autoload 'hcl-mode "hcl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.tf$" . hcl-mode))
 
 ;; graphviz
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)

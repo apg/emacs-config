@@ -22,6 +22,7 @@
                              git-gutter
                              git-link
                              gist
+                             hcl-mode
                              lsp-mode
                              lsp-ui
                              company-lsp))
@@ -54,7 +55,7 @@
  '(git-gutter:lighter " GG")
  '(package-selected-packages
    (quote
-    (flycheck company-lsp lsp-ui lsp-mode lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
+    (hcl-mode flycheck company-lsp lsp-ui lsp-mode lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

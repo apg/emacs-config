@@ -35,7 +35,7 @@
 
 ;; IBM Plex Preferred.
 (when (member "IBM Plex Mono" (font-family-list))
-  (set-frame-font "IBM Plex Mono-12" t t))
+  (set-frame-font "IBM Plex Mono-11" t t))
 
 (global-hl-line-mode +1)
 
