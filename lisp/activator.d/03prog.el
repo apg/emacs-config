@@ -69,6 +69,11 @@
             (require 'company-lsp)
             (setq lsp-enable-snippet nil)
             (setq lsp-enable-indentation t)
+            (setq lsp-idle-delay 0.500)
+            (setq gc-cons-threshold 100000000)
+            (setq read-process-output-max (* 1024 1024))
+            (setq lsp-enable-file-watchers nil)
+            (setq lsp-log-io nil)
             (lsp)
             (local-set-key (kbd "M-?") 'company-complete)))
 

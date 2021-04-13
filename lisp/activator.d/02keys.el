@@ -4,3 +4,6 @@
 (global-set-key (kbd "C-c j") 'imenu)
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "M-*") 'pop-tag-mark)
+
+
+(setq lsp-keymap-prefix "C-c l")
