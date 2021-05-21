@@ -34,7 +34,7 @@
   '(progn
      (when (file-exists-p "/usr/local/racket/bin/racket")
        (setq geiser-racket-binary "/usr/local/racket/bin/racket"))
-     (setq geiser-active-implementations '(racket guile chicken chibi))))
+     (setq geiser-active-implementations '(racket chicken chibi))))
 
 
 ;;; gerbil
@@ -69,6 +69,11 @@
             (require 'company-lsp)
             (setq lsp-enable-snippet nil)
             (setq lsp-enable-indentation t)
+            (setq lsp-idle-delay 0.500)
+            (setq gc-cons-threshold 100000000)
+            (setq read-process-output-max (* 1024 1024))
+            (setq lsp-enable-file-watchers nil)
+            (setq lsp-log-io nil)
             (lsp)
             (local-set-key (kbd "M-?") 'company-complete)))
 
@@ -129,11 +134,15 @@
 
 ;; autoload for Rust
 (autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
 
 ;; rust
 (eval-after-load "rust-mode"
   '(add-hook 'rust-mode-hook 'rust-enable-format-on-save))
+
+;; HCL / terraform
+(autoload 'hcl-mode "hcl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.tf$" . hcl-mode))
 
 ;; graphviz
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
