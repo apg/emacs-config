@@ -7,11 +7,12 @@
                            (concat user-emacs-directory
                                    "lisp/activator.d/")))
 
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 (if (require 'package nil t)
     (progn
       (add-to-list 'package-archives
-                   '("melpa" . "https://melpa.org/packages/"))
-
+                   '("melpa" . "https://melpa.org/packages/") t)
       (defvar apg-packages '(magit
                              markdown-mode
                              lua-mode
@@ -25,7 +26,6 @@
                              hcl-mode
                              lsp-mode
                              lsp-ui
-                             company-lsp
                              zig-mode))
       (package-initialize)
       (dolist (p apg-packages)
