@@ -1,13 +1,14 @@
 (setq rcirc-server-alist
-      '(("chat.freenode.net"
-         :port 7000
+      '(("irc.libera.chat"
+         :port 6697
+
          :encryption tls
-         :channels ("#hackandtell" "#racket"
+         :channels ("#racket"
                     "#lobsters" "#fennel"
                     "#openbsd" "#metabug"
                     "#scheme" "#atreus")
-         :user-name "apgwoz"
-         :nick "_apg")))
+         :user-name "apg"
+         :nick "apg")))
 
 (add-hook 'rcirc-mode-hook
           (lambda ()
