@@ -51,39 +51,21 @@
 
 
 ;;; go
+(require 'lsp-mode)
+(add-hook 'go-mode-hook 'lsp-deferred)
 
-;; basic custom
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
-            (local-set-key (kbd "M-*") 'pop-tag-mark)))
-
-(add-hook 'go-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'gofmt-before-save nil t)))
-
-(add-hook 'go-mode-hook
-          (lambda ()
-            (require 'lsp-mode)
-            (require 'company-lsp)
-            (setq lsp-enable-snippet nil)
-            (setq lsp-enable-indentation t)
-            (setq lsp-idle-delay 0.500)
-            (setq gc-cons-threshold 100000000)
-            (setq read-process-output-max (* 1024 1024))
-            (setq lsp-enable-file-watchers nil)
-            (setq lsp-log-io nil)
-            (lsp)
-            (local-set-key (kbd "M-?") 'company-complete)))
+            (add-hook 'before-save-hook 'lsp-format-buffer t t)
+            (add-hook 'before-save-hook 'lsp-organize-imports t t)))
 
 (eval-after-load "go-mode"
   '(progn
      (when (not (executable-find "gopls"))
-       (warn "NO gopls found. `go get golang.org/x/tools/gopls"))
-     (if (executable-find "goimports")
-         (setq gofmt-command "goimports")
-       (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports`"))))
+       (warn "NO gopls found. `go get golang.org/x/tools/gopls"))))
+
 
 ;;; css
 (eval-after-load "css-mode"
