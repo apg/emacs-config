@@ -5,6 +5,16 @@
   "Turn on pseudo-structural editing of Lisp code."
   t)
 
+;;; eglot configuration.
+(setq-default eglot-workspace-configuration
+    '((:gopls .
+        ((staticcheck . t)
+         (matcher . "CaseSensitive")))))
+
+(require 'eglot)
+(define-key eglot-mode-map (kbd "C-c r") 'eglot-rename)
+(define-key eglot-mode-map (kbd "C-c o") 'eglot-code-action-organize-imports)
+
 ;;; Stolen from technomancy
 (defun apg/paredit-no-space ()
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
@@ -51,21 +61,18 @@
 
 
 ;;; go
-(require 'lsp-mode)
-(add-hook 'go-mode-hook 'lsp-deferred)
-
-(add-hook 'go-mode-hook
-          (lambda ()
-            (set (make-local-variable 'c-basic-offset) 2)
-            (set (make-local-variable 'tab-width) 2)
-            (add-hook 'before-save-hook 'lsp-format-buffer t t)
-            (add-hook 'before-save-hook 'lsp-organize-imports t t)))
-
 (eval-after-load "go-mode"
   '(progn
      (when (not (executable-find "gopls"))
        (warn "NO gopls found. `go get golang.org/x/tools/gopls"))))
 
+
+(add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (set (make-local-variable 'c-basic-offset) 2)
+            (set (make-local-variable 'tab-width) 2)
+            (add-hook 'before-save-hook #'eglot-format-buffer -10 t)))
 
 ;;; css
 (eval-after-load "css-mode"
@@ -106,8 +113,6 @@
 
 ;; Replace "sbcl" with the path to your implementation
 (setq inferior-lisp-program "sbcl")
-
-
 
 ;;; autoload for fennel
 (autoload 'fennel-mode "fennel-mode" nil t)
