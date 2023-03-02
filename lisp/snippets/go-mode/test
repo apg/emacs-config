@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# condition: (string-match "_test\\.go$" buffer-file-name)
+# contributor : @apg
+# --
+func Test$1(t *testing.T) {
+	$0
+}

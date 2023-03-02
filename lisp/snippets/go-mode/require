@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: testify setup
+# key: require
+# type: command
+# condition: (string-match "_test\\.go$" buffer-file-name)
+# contributor : @apg
+# --
+(progn
+  (insert "r := require.New(t)")
+  (go-import-add nil "github.com/stretchr/testify/require"))

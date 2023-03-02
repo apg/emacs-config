@@ -32,6 +32,12 @@
 (dolist (m apg/prog-mode-hooks)
   (add-hook 'prog-mode-hook m))
 
+;;; yasnippet
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      `(,(expand-file-name
+           (concat user-emacs-directory "lisp/snippets"))))
+
 ;;; lisp-mode
 (add-hook 'lisp-mode-hook             'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook 'enable-paredit-mode)
@@ -58,21 +64,29 @@
      (setq scheme-program-name gerbil-program-name)))
 
 
-
-
 ;;; go
 (eval-after-load "go-mode"
   '(progn
      (when (not (executable-find "gopls"))
-       (warn "NO gopls found. `go get golang.org/x/tools/gopls"))))
+       (warn "NO gopls found. `go get golang.org/x/tools/gopls"))
+
+     (let ((goimports (executable-find "goimports")))
+       (if (not goimports)
+           (warn "NO goimports found. `go get golang.org/x/tools/cmd/goimports")
+         (setq gofmt-command goimports)))))
 
 
+(add-hook 'go-mode-hook 'yas-minor-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
-            (add-hook 'before-save-hook #'eglot-format-buffer -10 t)))
+
+            ;; eglot-format-buffer is super slow.
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            ;(add-hook 'before-save-hook #'eglot-format-buffer -10 t)
+            ))
 
 ;;; css
 (eval-after-load "css-mode"

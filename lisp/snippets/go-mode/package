@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: package
+# key: pack
+# contributor : @apg
+# --
+// $2
+package ${1:main}
