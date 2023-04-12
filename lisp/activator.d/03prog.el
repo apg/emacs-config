@@ -78,10 +78,12 @@
 
 (add-hook 'go-mode-hook 'yas-minor-mode)
 (add-hook 'go-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook 'company-mode)
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'c-basic-offset) 2)
             (set (make-local-variable 'tab-width) 2)
+            (set (make-local-variable 'create-lockfiles) nil)
 
             ;; eglot-format-buffer is super slow.
             (add-hook 'before-save-hook 'gofmt-before-save)
