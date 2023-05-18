@@ -17,8 +17,6 @@
 
 (add-to-list 'backup-directory-alist (cons "." "~/.backups"))
 
-(setq browse-url-browser-function 'browse-url-firefox)
-
 (global-font-lock-mode t)
 
 (show-paren-mode t)
@@ -57,13 +55,27 @@
 (setq apg/postits-dir (expand-file-name "~/Dropbox/Notes/postits/"))
 
 
+(setq apg/browser-prefs (list '("firefox" . browse-url-firefox)
+                              '("chromium" . browse-url-chromium)
+                              '("chrome" . browse-url-chrome)))
+
+(defun apg/best-browser (orelse)
+  (let ((found nil)
+        (cur (car apg/browser-prefs))
+        (rest (cdr apg/browser-prefs)))
+    (while (and (not found) rest)
+      (when (executable-find (car cur))
+        (setq found (cdr cur)))
+      (setq cur (car rest))
+      (setq rest (cdr rest)))
+    (if found found orelse)))
+
 (setq browse-url-browser-function
       (case system-type
-          ((darwin) 'browse-url-default-macosx-browser)
-        ((gnu/linux) 'browse-url-firefox)
-        ((berkeley-unix) 'browse-url-firefox)
-        (t eww-browse-url)))
+        ((darwin) 'browse-url-default-macosx-browser)
+        (t (apg/best-browser 'eww-browse-url))))
 
+(setq browse-url-temp-dir (expand-file-name "~/Downloads"))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
