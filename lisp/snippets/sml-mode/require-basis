@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: _require "basis.smi"
+# key: _req
+# --
+_require "basis.smi"

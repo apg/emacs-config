@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: where type ... = ...
+# key: where
+# --
+where type ${1:tycon} = ${2:ty}$0

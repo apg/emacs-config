@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: local ... in ... end (newline)
+# key: local
+# --
+local
+$>${1:dec}
+$>in
+$>${2:dec}
+$>end$0

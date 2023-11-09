@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: withtype ... = ...
+# key: withtype
+# --
+withtype ${1:tycon} = ${2:ty}$0

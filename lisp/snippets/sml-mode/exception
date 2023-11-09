@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: exception ...
+# key: exception
+# --
+exception ${1:vid <of ty>}$0

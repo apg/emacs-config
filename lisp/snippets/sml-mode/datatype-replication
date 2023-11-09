@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datatype ... = datatype ...
+# key: datatype
+# --
+datatype ${1:tycon} = datatype ${2:vid}$0

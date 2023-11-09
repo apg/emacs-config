@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: case ... of ... => ... (newline)
+# key: case
+# --
+case ${1:exp} of
+$>${2:pat} => ${3:exp}$0

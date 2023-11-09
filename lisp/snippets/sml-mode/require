@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: _require
+# key: _req
+# --
+_require "${1:module}"$0

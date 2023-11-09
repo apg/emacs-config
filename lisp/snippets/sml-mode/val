@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: val ... = ...
+# key: val
+# --
+val ${1:pat} = ${2:exp}$0

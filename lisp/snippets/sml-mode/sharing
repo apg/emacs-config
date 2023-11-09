@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sharing ... = ...
+# key: sharing
+# --
+sharing ${1:strid} = ${2:strid}$0

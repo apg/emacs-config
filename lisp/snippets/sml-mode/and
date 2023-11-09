@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: and ... = ...
+# key: and
+# --
+$>and ${1:...} = ${2:...}$0

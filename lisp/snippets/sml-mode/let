@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: let ... in ... end
+# key: let
+# --
+let ${1:dec} in ${2:exp} end$0

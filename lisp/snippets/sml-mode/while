@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: while ... do ...
+# key: while
+# --
+while ${1:exp} do ${2:exp}$0

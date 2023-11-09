@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: functor ... = ...
+# key: functor
+# --
+functor ${1:funid} (${2:strid} : ${3:sigexp}) ${4:: ${5:sigexp} }=${6:
+$>struct
+$>${7:strdec}
+$>end}$0

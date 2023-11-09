@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sharing type ... = ...
+# key: sharing
+# --
+sharing type ${1:tycon} = ${2:tycon}$0

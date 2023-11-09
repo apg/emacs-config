@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: structure ... = struct ... end
+# key: structure
+# --
+structure ${1:strid} =${2:
+$>struct
+$>${3:strdec}
+$>end}$0

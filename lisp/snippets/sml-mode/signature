@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: signature ... = sig ... end
+# key: signature
+# --
+signature ${1:sigid} =${2: 
+$>sig
+$>${3:spec}
+$>end}$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: abstype ... <withtype ...> with ... end
+# key: abstype
+# --
+abstype ${1:tycon} = ${2:conbind}
+${3:$>withtype ${4:tycon} = ${5:ty}
+}$>with ${6:dec} end$0

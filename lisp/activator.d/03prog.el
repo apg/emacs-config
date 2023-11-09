@@ -36,7 +36,8 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs
       `(,(expand-file-name
-           (concat user-emacs-directory "lisp/snippets"))))
+          (concat user-emacs-directory "lisp/snippets"))))
+(yas-reload-all)
 
 ;;; lisp-mode
 (add-hook 'lisp-mode-hook             'enable-paredit-mode)
@@ -89,6 +90,14 @@
             (add-hook 'before-save-hook 'gofmt-before-save)
             ;(add-hook 'before-save-hook #'eglot-format-buffer -10 t)
             ))
+
+;;; sml
+(add-hook 'sml-mode-hook
+          (lambda ()
+            (set (make-local-variable 'sml-indent-level) 2)
+            (set (make-local-variable 'indent-tabs-mode) nil)))
+(add-hook 'sml-mode-hook 'yas-minor-mode)
+(setq sml-program-name "sml")
 
 ;;; css
 (eval-after-load "css-mode"
