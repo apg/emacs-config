@@ -29,6 +29,7 @@
                              gist
                              hcl-mode
                              sml-mode
+                             exec-path-from-shell
                              zig-mode))
       (package-initialize)
       (dolist (p apg-packages)
@@ -46,6 +47,13 @@
   (load-file (expand-file-name
               (concat user-emacs-directory "lisp/" p))))
 
+;;; import env
+
+(when (memq window-system '(mac ns x))
+  (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "GITHUB_TOKEN"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
+
 (activator-start)
 
 (custom-set-variables
@@ -54,12 +62,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   (quote
-    ("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default)))
+   '("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default))
  '(git-gutter:lighter " GG")
  '(package-selected-packages
-   (quote
-    (sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme))))
+   '(exec-path-from-shell sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
