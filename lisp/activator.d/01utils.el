@@ -52,3 +52,18 @@
                                     (url-parse-query-string (or (cdr pq) "")))
 
                             "\n")))))
+
+
+
+(defvar do-not-edit-lines-to-search 5)
+
+(defun do-not-edit ()
+  "Put buffer in read only mode if it contains DO NOT EDIT within the first couple of lines"
+  (interactive)
+  (save-excursion
+    (let ((p (point)))
+      (forward-line do-not-edit-lines-to-search)
+      (when (re-search-backward "DO NOT EDIT" nil t)
+        (setq buffer-read-only t)))))
+
+(add-hook 'find-file-hook 'do-not-edit)
