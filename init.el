@@ -30,6 +30,7 @@
                              hcl-mode
                              sml-mode
                              exec-path-from-shell
+                             typescript-mode
                              zig-mode))
       (package-initialize)
       (dolist (p apg-packages)
@@ -66,7 +67,7 @@
    '("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default))
  '(git-gutter:lighter " GG")
  '(package-selected-packages
-   '(exec-path-from-shell sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme)))
+   '(typescript-mode exec-path-from-shell sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -152,6 +152,10 @@
 (eval-after-load "rust-mode"
   '(add-hook 'rust-mode-hook 'rust-enable-format-on-save))
 
+;; typescript
+(eval-after-load "typescript-mode"
+  (setq typescript-indent-level 2))
+
 ;; HCL / terraform
 (autoload 'hcl-mode "hcl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.tf$" . hcl-mode))
