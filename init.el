@@ -31,6 +31,7 @@
                              sml-mode
                              exec-path-from-shell
                              typescript-mode
+                             org-present
                              zig-mode))
       (package-initialize)
       (dolist (p apg-packages)
@@ -66,8 +67,9 @@
  '(custom-safe-themes
    '("c05b3e1761ba96b8169e62fd9c1a7359844a4c274f6879b6105984719f5fe8d7" default))
  '(git-gutter:lighter " GG")
+ '(org-agenda-files '("~/Documents/interviews/Kozlowski-Piotr/notes.org"))
  '(package-selected-packages
-   '(typescript-mode exec-path-from-shell sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme)))
+   '(org-present gotest typescript-mode exec-path-from-shell sml-mode flymake yasnippet company eglot zig-mode hcl-mode flycheck lua-mode git-link yaml-mode markdown-mode magit highlight-parentheses go-mode git-gutter gist geiser darktooth-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

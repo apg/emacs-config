@@ -1,0 +1,36 @@
+body {
+ font-size: 11pt;
+ font-family: Arial, sans-serif;
+ color: #000;
+}
+
+h1 {
+ font-size: 20pt;
+ font-weight: normal;
+ color: #000;
+}
+
+h2 {
+ font-size: 16pt;
+ font-weight: normal;
+ color: #000;
+}
+
+h3 {
+ font-size: 14pt;
+ font-weight: normal;
+ color: #434343;
+}
+
+h4 {
+ font-size: 12pt;
+ font-weight: normal;
+ color: #666;
+}
+
+
+code {
+ font-size: 11pt;
+ color: #188038;
+ font-family: "Roboto Mono", "Courier New", monospace;
+}

@@ -22,3 +22,5 @@
 (add-hook 'markdown-mode 'apg/text-focus-mode)
 
 (add-hook 'fundamental-mode 'flyspell-mode)
+
+(setq markdown-css-paths (list (expand-file-name "~/.emacs.d/markdown-work.css")))
